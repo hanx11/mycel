@@ -5,7 +5,7 @@ from __future__ import absolute_import, unicode_literals
 from celery import Celery
 from .config import BROKER_URL, CELERY_RESULT_BACKEND
 
-app = Celery('mycel', broker=BROKER_URL, backend=CELERY_RESULT_BACKEND, include=['mycel.tasks'])
+app = Celery(str("mycel"), broker=BROKER_URL, backend=CELERY_RESULT_BACKEND, include=['mycel.tasks'])
 
 app.conf.update(
     task_serializer='json',
